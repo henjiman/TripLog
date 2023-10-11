@@ -1,0 +1,22 @@
+﻿@*Ben Hayden
+    October 21*@
+
+@model Trip
+
+@*Step number 1 of the three-step form*@
+
+<form asp-action="AddStep3" method="post">
+    <div class="form-group">
+        <input asp-for="ThingToDo1" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input asp-for="ThingToDo2" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input asp-for="ThingToDo3" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-controller="Trip" asp-action="Cancel" class="btn btn-primary">Cancel</a>
+</form>
+

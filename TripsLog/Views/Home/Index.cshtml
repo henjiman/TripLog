@@ -1,0 +1,38 @@
+﻿@*Ben Hayden
+October 21*@
+
+@model List<Trip>
+@{
+    ViewBag.Title = "Trip Log";
+}
+
+@*main page of the application*@
+
+<a asp-controller="Trip" asp-action="AddStep1" class="btn btn-primary">Add Trip</a>
+<br />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Accommodation</th>
+            <th>Things to Do</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @*listing each trip in the trip-list model*@
+        @foreach (var trip in Model)
+        {
+            <tr>
+                <td>@trip.Destination</td>
+                <td>@trip.StartDate.ToString("MM/dd/yyyy")</td>
+                <td>@trip.EndDate.ToString("MM/dd/yyyy")</td>
+                <td>@trip.Accommodation<br /><i>@trip.AccommodationEmail</i><br /><i>@trip.AccommodationPhone</i></td>
+                <td>@trip.ThingToDo1<br />@trip.ThingToDo2<br />@trip.ThingToDo3</td>
+                <td><a asp-controller="Trip" asp-action="delete" asp-route-id=@trip.TripId><h2><span title="Delete Trip" class="fas fa-trash text-center"></span></h2></a></td>
+            </tr>
+        }
+    </tbody>
+</table>

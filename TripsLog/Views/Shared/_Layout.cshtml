@@ -1,0 +1,26 @@
+﻿@*Ben Hayden
+October 21
+
+Shared Layout File*@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <script src="https://kit.fontawesome.com/c6ca65247e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="jumbotron">
+                <h1>My Trip Log</h1>
+            </header>
+            @if (ViewData["SubheaderMsg"] != null)
+            {
+                <h4 class="bg-info text-center text-white p-2">@ViewData["SubheaderMsg"]</h4>
+            }
+            @RenderBody()
+        </div>
+    </body>
+</html>
